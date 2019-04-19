@@ -1,0 +1,3 @@
+ ## Gerneral Spring Configuration 
+server:
+  port: 4000

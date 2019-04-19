@@ -1,0 +1,16 @@
+schema {
+	query: Query
+}
+
+type Query { 
+	routes: [Route]
+	route(flightNumber: String!): Route
+}
+
+type Route {
+	id: ID!
+	flightNumber: String!
+	departure: String
+	destination: String
+	disabled: Boolean
+}

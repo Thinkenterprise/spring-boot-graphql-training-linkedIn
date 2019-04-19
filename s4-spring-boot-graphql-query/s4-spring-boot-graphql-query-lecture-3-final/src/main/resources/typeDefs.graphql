@@ -1,0 +1,41 @@
+schema {
+	query: Query
+}
+
+type Query { 
+	routes: [Route]
+	route(flightNumber: String!): Route
+}
+
+type Route {
+	id: ID!
+	flightNumber: String!
+	departure: String
+	destination: String
+	disabled: Boolean
+	flights: [Flight!]
+	route: Route
+}
+
+type Flight {
+	id: ID!
+	price: Float!
+	route: Route!
+	employees: [Employee!]
+	date: LocalDate!
+}
+
+scalar LocalDate
+
+type Employee {
+	id: ID!
+	staffNumber: String!
+	lastName: String! 
+	firstName: String! 
+	role: EmployeRole!
+}
+
+enum EmployeRole {
+	PILOT
+	ATTENDANT
+}
