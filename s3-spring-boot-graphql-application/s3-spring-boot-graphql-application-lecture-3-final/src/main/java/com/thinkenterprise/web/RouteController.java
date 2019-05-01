@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.thinkenterprise.domain.route.Route;
 import com.thinkenterprise.domain.route.RouteRepository;
 
-
-
 /**  
 * GraphQL Spring Boot Samples 
 * Design and Development by Michael Schäfer 
@@ -20,24 +18,22 @@ import com.thinkenterprise.domain.route.RouteRepository;
 */
 
 /**
- * The Rest Controller works only, if you add @JsonIgnore on the recursive parts of the data model. 
- * */
+ * The Rest Controller works only, if you add @JsonIgnore on the recursive parts
+ * of the data model.
+ */
 
 @RestController
 public class RouteController {
 
 	private RouteRepository routeRepository;
-	
+
 	public RouteController(RouteRepository routeRepository) {
-		this.routeRepository=routeRepository;
+		this.routeRepository = routeRepository;
 	}
-	
-	
-	
+
 	@GetMapping
 	public List<Route> routes() {
 		return routeRepository.findAll();
-		
 	}
-	
+
 }

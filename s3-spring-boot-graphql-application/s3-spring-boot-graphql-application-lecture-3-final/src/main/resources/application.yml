@@ -10,7 +10,7 @@ graphql:
   tools:
     schemaLocationPattern: "**/*.graphql"
 
-## JPA Database Configuration 
+## JPA Database Configuration     
 spring:
   jpa:
     generate-ddl: true
