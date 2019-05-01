@@ -29,7 +29,7 @@ public class RouteController {
 		this.routeRepository=routeRepository;
 	}
 	
-	@GetMapping
+	@GetMapping("\routes")
 	public List<Route> routes() {
 		return routeRepository.findAll();
 		

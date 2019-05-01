@@ -13,7 +13,6 @@ type Query {
 type Mutation {
 	createRoute(flightNumber: String!): Route
 	updateRoute(id: ID!, departure: String!): Route
-	updateRouteWithRouteInput(id: ID!, input: RouteInput!): Route
 }
 
 input RouteInput {

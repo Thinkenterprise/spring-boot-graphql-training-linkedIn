@@ -14,7 +14,6 @@ type Mutation {
 	createRoute(flightNumber: String!): Route
 	updateRoute(id: ID!, departure: String!): Route
 	updateRouteWithRouteInput(id: ID!, input: RouteInput!): Route
-	deleteRoute(id: ID!): Boolean
 }
 
 input RouteInput {
