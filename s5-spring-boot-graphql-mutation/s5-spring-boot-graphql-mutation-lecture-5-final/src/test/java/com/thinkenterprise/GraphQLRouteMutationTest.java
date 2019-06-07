@@ -1,8 +1,8 @@
 package com.thinkenterprise;
 
-import static graphql.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 
@@ -16,7 +16,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
-import org.springframework.test.annotation.DirtiesContext.MethodMode;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
@@ -31,6 +30,8 @@ public class GraphQLRouteMutationTest {
     @Test
     public void routeQueryDeleteRoute() throws IOException {       
         GraphQLResponse response  = graphQLTestTemplate.postForResource("deleteRoute.graphql");
+        assertNotNull(response);
+        assertTrue(response.isOk());
         assertEquals(true, response.get("$.data.deleteRoute", Boolean.class));
     }
        

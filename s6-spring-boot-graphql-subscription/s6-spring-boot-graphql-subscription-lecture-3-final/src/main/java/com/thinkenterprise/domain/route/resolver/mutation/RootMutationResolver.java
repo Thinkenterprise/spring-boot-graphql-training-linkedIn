@@ -1,39 +1,37 @@
 package com.thinkenterprise.domain.route.resolver.mutation;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.thinkenterprise.domain.route.Route;
 import com.thinkenterprise.domain.route.RouteRepository;
-import com.thinkenterprise.domain.route.publisher.RouteUpdatePublisher;
+import com.thinkenterprise.domain.route.publisher.RouteCreatedPublisher;
 
-/**  
-* GraphQL Spring Boot Samples 
-* Design and Development by Michael Schäfer 
-* Copyright (c) 2019 
-* All Rights Reserved.
-* 
-* @author Michael Schäfer
-*/
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@Service 
+/**
+ * GraphQL Spring Boot Samples Design and Development by Michael Schäfer
+ * Copyright (c) 2019 All Rights Reserved.
+ * 
+ * @author Michael Schäfer
+ */
+
+@Service
 public class RootMutationResolver implements GraphQLMutationResolver {
 
     private RouteRepository routeRepository;
-    private RouteUpdatePublisher routeUpdatePublisher;
+    private RouteCreatedPublisher routeCreatedPublisher;
 
     @Autowired
     public RootMutationResolver(RouteRepository routeRepository,
-                                RouteUpdatePublisher routeUpdatePublisher) {
+                                RouteCreatedPublisher routeUpdatePublisher) {
         this.routeRepository=routeRepository;	
-        this.routeUpdatePublisher=routeUpdatePublisher;
+        this.routeCreatedPublisher=routeUpdatePublisher;
     }
  
     public Route createRoute(String flightNumber) {
         Route route = new Route(flightNumber);
         routeRepository.save(route);
+        routeCreatedPublisher.emit(route);
         return route; 
     }
 

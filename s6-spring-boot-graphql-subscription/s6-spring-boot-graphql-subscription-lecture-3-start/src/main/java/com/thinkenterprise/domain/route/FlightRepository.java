@@ -19,5 +19,5 @@ public interface FlightRepository extends CrudRepository<Flight, Long> {
 		
 	@Query( "select f from Flight f where f.route = :route")
 	List<Flight> findByRoute(@Param("route") Route route);
-
+	
 }

@@ -1,8 +1,8 @@
 package com.thinkenterprise.domain.route.publisher;
 
-import org.springframework.stereotype.Component;
-
 import com.thinkenterprise.domain.route.Route;
+
+import org.springframework.stereotype.Component;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
@@ -20,15 +20,16 @@ import io.reactivex.observables.ConnectableObservable;
 */
 
 @Component
-public class RouteUpdatePublisher {
+public class RouteCreatedPublisher {
 
     private final Flowable<Route> publisher;
     private ObservableEmitter<Route> observableEmitter;
 
-    public RouteUpdatePublisher() {
+    public RouteCreatedPublisher() {
         Observable<Route> stockPriceUpdateObservable = Observable.create(emitter -> {
             observableEmitter=emitter;
         });
+        
 
         ConnectableObservable<Route> connectableObservable = stockPriceUpdateObservable.share().publish();
         connectableObservable.connect();

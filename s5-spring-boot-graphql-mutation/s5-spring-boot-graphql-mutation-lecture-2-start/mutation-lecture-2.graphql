@@ -1,0 +1,4 @@
+mutation update{updateRoute(id: 101 departure: "BER") {id departure}}
+
+
+

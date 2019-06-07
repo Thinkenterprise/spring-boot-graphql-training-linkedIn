@@ -34,6 +34,7 @@ public class Flight extends AbstractEntity {
 	@OneToMany(mappedBy="flight",cascade=CascadeType.REMOVE, fetch=FetchType.LAZY)
 	private Set<Employee> employees;
 
+ 
 
 	public Flight() {
 		super();
