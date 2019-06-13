@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.thinkenterprise</groupId>
-	<artifactId>s5-spring-boot-graphql-mutation-lecture-5-final</artifactId>
+	<artifactId>s5-spring-boot-graphql-mutation-lecture-5-start</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 

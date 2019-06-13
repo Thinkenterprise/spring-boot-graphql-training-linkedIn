@@ -5,8 +5,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -30,7 +28,6 @@ public class Route extends AbstractEntity {
 	private Boolean disabled;
 
 	@OneToOne
-	//@JoinColumn(name="id", referencedColumnName="parent_id", nullable=true)
 	private Route parent;
 
 	@OneToMany(mappedBy = "route", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
