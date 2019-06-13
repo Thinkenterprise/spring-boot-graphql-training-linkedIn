@@ -3,8 +3,6 @@ package com.thinkenterprise.domain.employee;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 
 import com.thinkenterprise.domain.AbstractEntity;

@@ -29,7 +29,7 @@ public class RootQueryResolver implements GraphQLQueryResolver {
 		this.routeRepository=routeRepository;	
 	}
 	
-	pub
+
 	public List<Route> routes() {
 		return routeRepository.findAll();
 	} 
